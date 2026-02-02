@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة فلاتر الوجه الاحترافية</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- MediaPipe and TensorFlow Libraries -->
+    <script src="lib/tf.min.js"></script>
+    <script src="lib/face-landmarks-detection.min.js"></script>
+    <script src="lib/face_mesh.js"></script>
+    <script src="lib/camera_utils.js"></script>
+    <script src="lib/drawing_utils.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>✨ منصة فلاتر الوجه الذكية</h1>
+            <p>أضف لمستك الإبداعية باستخدام تقنيات الذكاء الاصطناعي</p>
+        </header>
+
+        <main>
+            <div class="video-section">
+                <div class="canvas-wrapper">
+                    <video id="input_video" playsinline style="display:none;"></video>
+                    <canvas id="output_canvas"></canvas>
+                    <div id="loading-spinner" class="spinner"></div>
+                </div>
+                
+                <div class="controls-overlay">
+                    <div class="input-methods">
+                        <button id="btn-camera" class="btn-primary">📸 تشغيل الكاميرا</button>
+                        <label for="image-upload" class="btn-secondary">🖼️ رفع صورة
+                            <input type="file" id="image-upload" accept="image/*" style="display:none;">
+                        </label>
+                        <button id="btn-save" class="btn-success">💾 حفظ النتيجة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="filter-categories">
+                    <button class="tab-btn active" data-category="accessories">إكسسوارات</button>
+                    <button class="tab-btn" data-category="makeup">مكياج</button>
+                    <button class="tab-btn" data-category="effects">تأثيرات</button>
+                    <button class="tab-btn" data-category="backgrounds">خلفيات</button>
+                    <button class="tab-btn" data-category="animals">حيوانات</button>
+                    <button class="tab-btn" data-category="creative">إبداع</button>
+                </div>
+
+                <div class="filter-grid" id="filter-items">
+                    <!-- سيتم ملؤها بواسطة JS -->
+                </div>
+
+                <div class="adjustment-panel">
+                    <h3>⚙️ التحكم في الفلتر الأخير</h3>
+                    <div class="control-group">
+                        <label>الحجم (Scale):</label>
+                        <input type="range" id="scale-slider" min="0.5" max="2.5" step="0.1" value="1">
+                    </div>
+                    <div class="control-group">
+                        <label>الشدة (Intensity):</label>
+                        <input type="range" id="intensity-slider" min="0" max="1" step="0.1" value="1">
+                    </div>
+                    <button id="btn-clear" class="btn-danger">🧹 مسح الكل</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

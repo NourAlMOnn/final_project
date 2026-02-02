@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- ============================================================ -->
+    <!-- صفحة الترحيب الرئيسية - Landing Page -->
+    <!-- ============================================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎭 فلاتر الوجه الذكي - تطبيق فلاتر احترافي</title>
+    
+    <style>
+        /* ============================================================ */
+        /* أنماط عامة */
+        /* ============================================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* ============================================================ */
+        /* الرأس والملاح */
+        /* ============================================================ */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* ============================================================ */
+        /* قسم البطل (Hero Section) */
+        /* ============================================================ */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================================ */
+        /* زر البدء */
+        /* ============================================================ */
+        .cta-button {
+            display: inline-block;
+            padding: 15px 50px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.6);
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* ============================================================ */
+        /* قسم الأقسام */
+        /* ============================================================ */
+        .features-section {
+            background: white;
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            color: #333;
+        }
+
+        .section-title span {
+            color: #667eea;
+        }
+
+        /* ============================================================ */
+        /* شبكة الأقسام */
+        /* ============================================================ */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+        }
+
+        .feature-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .feature-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .feature-description {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* ============================================================ */
+        /* الفوتر */
+        /* ============================================================ */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #f5576c;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #f093fb;
+        }
+
+        /* ============================================================ */
+        /* الرسوميات المتحركة */
+        /* ============================================================ */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================================ */
+        /* استجابة الشاشات الصغيرة */
+        /* ============================================================ */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============================================================ -->
+    <!-- رأس الصفحة -->
+    <!-- ============================================================ -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <span>📸</span>
+                <span>فلاتر الوجه الذكي</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- قسم البطل (Hero Section) -->
+    <!-- ============================================================ -->
+    <section class="hero">
+        <h1>🎭 فلاتر الوجه الذكية</h1>
+        <p>تطبيق تفاعلي يستخدم الذكاء الاصطناعي لتطبيق فلاتر احترافية على وجهك في الوقت الفعلي</p>
+        <button class="cta-button" onclick="goToFilters()">ابدأ التجربة الآن</button>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- قسم الأقسام الستة -->
+    <!-- ============================================================ -->
+    <section class="features-section">
+        <div class="features-container">
+            <h2 class="section-title">استكشف <span>الأقسام الستة</span></h2>
+            
+            <div class="features-grid">
+                <!-- قسم الإكسسوارات -->
+                <div class="feature-card">
+                    <div class="feature-image">👓</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">الإكسسوارات</h3>
+                        <p class="feature-description">نظارات وقبعات وتيجان تتحرك مع وجهك بسلاسة وتفاعل فوري</p>
+                    </div>
+                </div>
+
+                <!-- قسم المكياج -->
+                <div class="feature-card">
+                    <div class="feature-image">💄</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">المكياج</h3>
+                        <p class="feature-description">أحمر شفاه وبلاشر وظل عيون وتنعيم بشرة واحترافية عالية</p>
+                    </div>
+                </div>
+
+                <!-- قسم التأثيرات -->
+                <div class="feature-card">
+                    <div class="feature-image">✨</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">التأثيرات</h3>
+                        <p class="feature-description">تأثيرات كرتونية وسينمائية وتشويه مضحك وتوهج ساحر</p>
+                    </div>
+                </div>
+
+                <!-- قسم الخلفية -->
+                <div class="feature-card">
+                    <div class="feature-image">🎨</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">الخلفية</h3>
+                        <p class="feature-description">طمس وتغيير واستبدال الخلفية بذكاء اصطناعي متقدم</p>
+                    </div>
+                </div>
+
+                <!-- قسم الحيوانات -->
+                <div class="feature-card">
+                    <div class="feature-image">🐱</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">الحيوانات</h3>
+                        <p class="feature-description">تحول إلى قطة أو كلب أو أرنب بتأثيرات طريفة وممتعة</p>
+                    </div>
+                </div>
+
+                <!-- قسم الإبداعية -->
+                <div class="feature-card">
+                    <div class="feature-image">🎭</div>
+                    <div class="feature-content">
+                        <h3 class="feature-title">الإبداعية</h3>
+                        <p class="feature-description">تكبير العمر أو تصغيره بتأثيرات ذكية وطبيعية</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- الفوتر -->
+    <!-- ============================================================ -->
+    <footer>
+        <div class="footer-content">
+            <p class="footer-text">© 2024 تطبيق فلاتر الوجه الذكي</p>
+            <p class="footer-text">جميع الحقوق محفوظة</p>
+            <div class="footer-links">
+                <a href="#privacy">سياسة الخصوصية</a>
+                <span>|</span>
+                <a href="#terms">شروط الاستخدام</a>
+                <span>|</span>
+                <a href="#contact">اتصل بنا</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- JavaScript للتنقل -->
+    <!-- ============================================================ -->
+    <script>
+        // دالة للانتقال إلى صفحة الفلاتر
+        function goToFilters() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
